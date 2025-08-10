@@ -1,0 +1,15 @@
+services:
+  flask-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app  # This maps the local ./app directory to /app in the container
+    environment:
+      - FLASK_APP=app.py  # Define Flask app
+      - FLASK_ENV=development_docker  # Use Docker-specific environment
+      - FLASK_RUN_HOST=0.0.0.0  # Ensure Flask binds to the correct host
+    ports:
+      - "5000:5000"
+    env_file: 
+      - .env  # Reference secrets from .env file

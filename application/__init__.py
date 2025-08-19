@@ -63,10 +63,11 @@ def create_app():
     CORS(app, supports_credentials=True, origins=["http://front-end-url-if-apply", "http://localhost:5000"], allow_headers=["Content-Type", "Authorization", "X-CSRF-TOKEN", "x-api-key"], expose_headers=["Content-Type", "Authorization", "X-CSRF-TOKEN", "x-api-key"])
 
     # Import the blueprints
-    from .blueprints import auth_bp
+    from .blueprints import auth_bp, receipt_bp
 
     # Register the blueprints with url prefixes
     app.register_blueprint(auth_bp, url_prefix='/auth')
+    app.register_blueprint(receipt_bp, url_prefix='/receipts')
 
     # Import the function here to avoid circular import
     from database import StartupSeeder

@@ -1,8 +1,3 @@
-# Description: Auth service class to handle authorization related operations.
-
-# Import the required modules and libraries
-
-# Import the required modules and database
 from database import db
 from application.services import BaseValidationService
 from datetime import datetime
@@ -74,7 +69,8 @@ class AuthService(BaseValidationService):
         """
         # Set the JSON response
         response = make_response({
-            'message': 'User logged out successfully.'
+            'message': 'User logged out successfully.',
+            'success': True
         }, 200)
 
         # Clear the JWT cookies in the response

@@ -26,6 +26,10 @@ class Config:
     JWT_CSRF_METHODS = ['GET', 'POST', 'PUT', 'PATCH', 'DELETE']
     AZURE_FUNCTION_URL = os.environ.get('AZURE_FUNCTION_URL', 'http://localhost:7071/api/get-news-data?')
 
+    # Server configuration
+    HOST = os.environ.get('HOST', '0.0.0.0')
+    PORT = int(os.environ.get('PORT', 5000))
+
     # Print config
     def __repr__(self) -> str:
         return f"Config({self.__dict__})"
